@@ -1,0 +1,39 @@
+@startuml
+
+interface       AbstractFactory
+interface       AbstractCola
+interface       AbstractHamburg
+
+
+AbstractFactory <|.. kfcFactory
+AbstractFactory <|.. MDFactory
+
+AbstractCola <|.. KfcCola
+AbstractHamburg <|.. KfcHamburg
+
+AbstractHamburg <|.. MDHamburg
+AbstractCola <|.. MDCola
+
+kfcFactory ..> KfcCola
+kfcFactory ..> KfcHamburg
+MDFactory ..> MDCola
+MDFactory ..> MDHamburg
+
+AbstractFactory : +createHamburg(): AbstractHamburg
+AbstractFactory : +createCola(): AbstractCola
+
+kfcFactory : +createHamburg(): AbstractHamburg
+kfcFactory : +createCola(): AbstractCola
+
+MDFactory : +createHamburg(): AbstractHamburg
+MDFactory : +createCola(): AbstractCola
+
+AbstractCola : +drink(): void
+KfcCola : +drink(): void
+MDCola : +drink(): void
+
+AbstractHamburg : +eat(): void
+KfcHamburg : +eat(): void
+MDHamburg : +eat(): void
+
+@enduml

@@ -1,0 +1,23 @@
+@startuml
+interface Book{
+    +discount(): void
+}
+
+class CsBook{
+    +discount(): void
+}
+
+class EnglishBook{
+    +discount(): void
+}
+
+class Context{
+    -book: Book
+    +setBook(book: Book) void
+    +contextBook(): void
+}
+
+Context o-- Book
+CsBook ..|> Book
+EnglishBook ..|> Book
+@enduml

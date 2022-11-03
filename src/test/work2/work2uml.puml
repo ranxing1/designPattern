@@ -1,0 +1,34 @@
+@startuml
+
+interface Implementor{
+    +read(): void
+}
+class Abstraction{
+    #implementor: Implementor
+    +Abstraction(implementor: Implementor)
+    +show(): void
+}
+class TxtImpl{
+    +read(): void
+}
+class DBImpl{
+    +read(): void
+}
+class ExcelImpl{
+    -excel: Excel
+    +read(): void
+}
+class Excel{
+    +readData(): void
+}
+class RefinedAbstraction{
+    +Abstraction(implementor: Implementor)
+    +show(): void
+}
+Abstraction <|-- RefinedAbstraction
+Abstraction o-- Implementor
+TxtImpl ..|> Implementor
+ExcelImpl ..|> Implementor
+DBImpl ..|> Implementor
+ExcelImpl --> Excel
+@enduml

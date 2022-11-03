@@ -1,0 +1,55 @@
+@startuml
+
+interface       Creator
+interface       Laptop
+
+
+
+Creator <|.. AcerCreator
+Creator <|.. HPCreator
+Creator <|.. LenovoCreator
+Creator <|.. DellCreator
+
+Laptop <|.. AcerLaptop
+Laptop <|.. HPLaptop
+Laptop <|.. LenovoLaptop
+Laptop <|.. DellLaptop
+
+AcerCreator ..> AcerLaptop
+HPCreator ..> HPLaptop
+LenovoCreator ..> LenovoLaptop
+DellCreator ..> DellLaptop
+
+interface Creator{
+    +factoryMethod(): Laptop
+}
+class AcerCreator{
+    +factoryMethod(): Laptop
+}
+class HPCreator{
+    +factoryMethod(): Laptop
+}
+class LenovoCreator{
+    +factoryMethod(): Laptop
+}
+class DellCreator{
+    +factoryMethod(): Laptop
+}
+
+interface Laptop{
+    +show(): void
+}
+class AcerLaptop{
+    +show(): void
+}
+class HPLaptop{
+    +show(): void
+}
+class LenovoLaptop{
+    +show(): void
+}
+class DellLaptop{
+    +show(): void
+}
+
+@enduml

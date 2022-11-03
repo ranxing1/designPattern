@@ -1,0 +1,37 @@
+@startuml
+
+AbstractCarBuilder <|-- BenZCarBuilder
+AbstractCarBuilder <|-- BMWCarBuilder
+
+Director o-- AbstractCarBuilder
+BenZCarBuilder ..> Car
+BMWCarBuilder ..> Car
+
+abstract AbstractCarBuilder{
++car: Car
++buildWheel(): void
++buildOilBox(): void
++buildBody(): void
+}
+class BenZCarBuilder{
++buildWheel(): void
++buildOilBox(): void
++buildBody(): void
+}
+class BMWCarBuilder{
++buildWheel(): void
++buildOilBox(): void
++buildBody(): void
+}
+class Car{
++wheel: String
++oilBox: String
++body: String
+}
+class Director{
+-carBuilder: AbstractCarBuilder
++setcarBuilder(carBuilder: AbstractCarBuilder): void
++getCar(): Car
+}
+
+@enduml

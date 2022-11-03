@@ -1,0 +1,39 @@
+@startuml
+
+interface Implementor{
+    +add(): void
+}
+class ACoffee{
+    #implementor: Implementor
+    +ACoffee(implementor: Implementor)
+    +make(): void
+}
+class MilkImpl{
+    +add(): void
+}
+class SugarImpl{
+    +add(): void
+}
+class LemonImpl{
+    +add(): void
+}
+class JorumCoffee{
+    +JorumCoffee(implementor: Implementor)
+    +make(): void
+}
+class MediumCoffee{
+    +MediumCoffee(implementor: Implementor)
+    +make(): void
+}
+class SmallCoffee{
+    +SmallCoffee(implementor: Implementor)
+    +make(): void
+}
+ACoffee <|-- JorumCoffee
+ACoffee <|-- MediumCoffee
+ACoffee <|-- SmallCoffee
+MilkImpl ..|> Implementor
+LemonImpl ..|> Implementor
+SugarImpl ..|> Implementor
+ACoffee o-- Implementor
+@enduml

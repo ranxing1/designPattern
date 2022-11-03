@@ -1,0 +1,30 @@
+@startuml
+interface Draw{
+    +draw(name: String): void
+}
+class Angle{
+    +drawAngle(): void
+}
+class Circle{
+    +draw(): void
+}
+class Line{
+    +draw(): void
+}
+class Rectangle{
+    +draw(): void
+}
+class Client{
+    +main(args: String): void
+}
+class Adapter{
+    +angle: Angle
+    +circle: Circle
+    +line: Line
+    +rectangle: Rectangle
+    +draw(name: String): void
+}
+Adapter --> Angle
+Adapter ..|> Draw
+Client --> Draw
+@enduml

@@ -1,0 +1,31 @@
+@startuml
+class Alarm{
+    +on(): void
+    +close(): void
+}
+class Camera{
+    +on(): void
+    +close(): void
+}
+class Light{
+     +on(): void
+     +close(): void
+}
+class Sensor{
+    +on(): void
+    +close(): void
+}
+class SecuritySystem{
+    -alarm； Alarm
+    -camera: Camera
+    -light: Light
+    -sensor: Sensor
+    +on(): void
+    +close(): void
+}
+SecuritySystem --> Alarm
+SecuritySystem --> Camera
+SecuritySystem --> Light
+SecuritySystem --> Sensor
+
+@enduml

@@ -1,0 +1,27 @@
+@startuml
+
+class Sheep{
+    #operation(): String
+}
+class DeSheep{
+    -sheep: Sheep
+    +DeSheep(sheep: Sheep)
+    +getSheep(): Sheep
+}
+class RedSheep{
+    #operation(): String
+}
+class GreenSheep{
+    +GreenSheep(sheep: Sheep)
+    #operation(): String
+}
+class YellowSheep{
+    +YellowSheep(sheep: Sheep)
+    #operation(): String
+}
+Sheep ^-- RedSheep
+Sheep ^-- DeSheep
+DeSheep ^-- GreenSheep
+DeSheep ^-- YellowSheep
+DeSheep o-- Sheep
+@enduml

@@ -1,0 +1,66 @@
+@startuml
+class Vip{
+    +update(subject: Subject,name: String,price: int): void
+}
+
+class PrimaryVip{
+    -name: String
+    -observerState: String
+    +PrimaryVip(name: String)
+    +update(subject: Subject,name: String,price: int): void
+}
+
+class MediumVip{
+    -name: String
+    -observerState: String
+    +MediumVip(name: String)
+    +update(subject: Subject,name: String,price: int): void
+}
+
+class Subject{
+    -vips: List<Vip>
+    +getVips(): List<Vip>
+    +setVips(): void
+    +notifyToAll(): void
+    +attach(vip: Vip): void
+    +detach(vip: Vip): void
+}
+
+class PrimarySubject{
+    -name: String
+    -price: int
+    -subjectState: String
+    +PrimarySubject(name: String,price: int)
+    +getPrice(): int
+    +setPrice(price: int): void
+    +getName(): String
+    +setName(name: String): void
+    +getSubjectState(): String
+    +setSubjectState(subjectState: String): void
+    +attach(vip: Vip): void
+    +detach(vip: Vip): void
+}
+
+class MediumSubject{
+    -name: String
+    -price: int
+    -subjectState: String
+    +PrimarySubject(name: String,price: int)
+    +getPrice(): int
+    +setPrice(price: int): void
+    +getName(): String
+    +setName(name: String): void
+    +getSubjectState(): String
+    +setSubjectState(subjectState: String): void
+    +attach(vip: Vip): void
+    +detach(vip: Vip): void
+}
+
+Subject --> Vip
+Vip <|-- PrimaryVip
+Vip <|-- MediumVip
+Subject <|-- PrimarySubject
+Subject <|-- MediumSubject
+PrimaryVip --> PrimarySubject
+MediumVip --> MediumSubject
+@enduml
